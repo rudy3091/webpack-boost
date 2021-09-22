@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, './public/index.js'),
+  entry: path.resolve(__dirname, './client/index.js'),
   watchOptions: {
     poll: 1000,
     ignored: /node_modules/,

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start:wp": "webpack serve --open",
-    "start:node": "nodemon --exec babel-node src/index.js",
+    "start:node": "nodemon --exec babel-node server/index.js",
     "build": "webpack"
   },
   "dependencies": {
