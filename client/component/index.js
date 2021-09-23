@@ -9,6 +9,8 @@ export default class Component {
 
     this.container = document.createElement(props.nodeName ?? 'div');
     this.container.className = props.className ?? '';
+    this.init();
+
     this.container.innerHTML = props.innerHTML ?? this.template();
     this.render();
   }
