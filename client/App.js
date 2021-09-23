@@ -14,16 +14,37 @@ function counter(state = 0, action) {
 
 export default class App extends Component {
   init() {
+    this.container.className = 'container';
+    this.container.style.textAlign = `center`;
+
     this.store = createStore(counter);
     this.store.subscribe(() => {
-      this.container.textContent = this.store.getState();
+      this.value.textContent = this.store.getState();
     });
-    this.container.addEventListener('click', () => {
-      this.store.dispatch({ type: 'INCREMENT' });
+
+    this.container.oncontextmenu = () => false;
+    this.container.addEventListener('mousedown', (ev) => {
+      ev.preventDefault();
+      if (ev.button === 0) {
+        this.store.dispatch({ type: 'INCREMENT' });
+      } else {
+        this.store.dispatch({ type: 'DECREMENT' });
+      }
     });
   }
 
   template() {
-    return `<div>${this.store.getState()}</div>`;
+    return `
+      <div class="label">
+        left click to increase, right click to decrease
+      </div>
+      <div class="value">
+        ${this.store.getState()}
+      </div>`;
+  }
+
+  rendered() {
+    this.label = this.container.querySelector('.label');
+    this.value = this.container.querySelector('.value');
   }
 }
