@@ -13,6 +13,7 @@ export default class Component {
 
     this.container.innerHTML = props.innerHTML ?? this.template();
     this.render();
+    this.rendered();
   }
 
   template() {
@@ -22,4 +23,6 @@ export default class Component {
   render() {
     this.parent.appendChild(this.container);
   }
+
+  rendered() { /* do somethign when rendering completed */ }
 }
