@@ -3,6 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './client/index.js'),
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './client'),
+    },
+  },
   watchOptions: {
     poll: 1000,
     ignored: /node_modules/,
