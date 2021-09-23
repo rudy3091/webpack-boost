@@ -1,12 +1,7 @@
-import Component from './component';
+import Component from '@/component';
 
 export default class App extends Component {
-  constructor(target) {
-    super(target);
-    this.target = target;
-  }
-
-  render() {
-    this.target.innerHTML = '<div>hello world</div>';
+  template() {
+    return `<div>hello world</div>`
   }
 }

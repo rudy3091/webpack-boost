@@ -1,15 +1,20 @@
 export default class Component {
-  constructor(parent, props) {
-    if (!parent || !props) {
+  constructor(parent, props = {}) {
+    if (!parent) {
       throw new Error(
-        `Component's parent and props object should be passed to constructor`
+        `Component's parent object should be passed to constructor`
       );
     }
     this.parent = parent;
 
     this.container = document.createElement(props.nodeName ?? 'div');
     this.container.className = props.className ?? '';
-    this.container.innerHTML = props.innerHTML ?? '';
+    this.container.innerHTML = props.innerHTML ?? this.template();
+    this.render();
+  }
+
+  template() {
+    return ``;
   }
 
   render() {
